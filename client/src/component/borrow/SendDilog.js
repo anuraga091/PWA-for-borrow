@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import {Dialog, TextField, Button,styled} from '@mui/material';
-
+import LendingConfirmation from '../confirmation/LendingConfirmation';
 import { sendMoney } from '../../services/api';
 
 const LendDialog = ({open,setOpen}) => {
@@ -11,6 +11,8 @@ const LendDialog = ({open,setOpen}) => {
         upi_id: ''
     }
     const [lendMoney, setLendMoney] = useState(lendInitialValues);
+    
+    const [openFinal, setOpenFinal] = useState(false);
 
      const handleClose = () => {
          setOpen(false);
@@ -22,6 +24,9 @@ const LendDialog = ({open,setOpen}) => {
 
     const handleClick = async () => {
         let response = await sendMoney(lendMoney)
+    }
+    const openDialog = () => {
+        setOpenFinal(true);
     }
 
   return (
@@ -39,9 +44,10 @@ const LendDialog = ({open,setOpen}) => {
               <TextField variant='standard' onChange={(e) => onInputChange(e)} name='upi_id' label = 'UPI Id'/>
               <StyleDiv>
                 <BackButton onClick={handleClose}>Back</BackButton>
-                <LendButton  onClick={handleClick}>Continue</LendButton>
+                <LendButton  onClick={() => {handleClick(); openDialog()}}>Continue</LendButton>
               </StyleDiv>
         </DivContainer>
+        <LendingConfirmation openFinal= {openFinal} setOpenFinal= {setOpenFinal}/>
     </Dialog>
   )
 }
