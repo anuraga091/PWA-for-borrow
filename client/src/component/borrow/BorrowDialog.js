@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import {Dialog, TextField, Button,styled} from '@mui/material';
 import { borrowMoney } from '../../services/api';
+import BorrowingConfirmation from '../confirmation/BorrowingConfirmation';
 
 const BorrowDialog = ({open, setOpen}) => {
     
@@ -11,6 +12,7 @@ const BorrowDialog = ({open, setOpen}) => {
         upi_id: ''
     }
     const [borrow, setBorrow] = useState(borrowInitialValues);
+    const [openFinal, setOpenFinal] = useState(false);
 
      const handleClose = () => {
         setOpen(false);
@@ -22,6 +24,10 @@ const BorrowDialog = ({open, setOpen}) => {
 
     const handleClick = async () => {
         let response = await borrowMoney(borrow)
+    }
+    
+    const openDialog = () => {
+        setOpenFinal(true);
     }
 
   return (
@@ -38,8 +44,9 @@ const BorrowDialog = ({open, setOpen}) => {
               <TextField variant='standard' onChange={(e) => onInputChange(e)} name='upi_id' label = 'UPI Id'/>
               <StyleDiv>
                 <BackButton onClick={handleClose}>Back</BackButton>
-                <BorrowButton onClick={handleClick}>Continue</BorrowButton>
+                <BorrowButton onClick={() => {handleClick(); openDialog()}}>Continue</BorrowButton>
               </StyleDiv>
+            <BorrowingConfirmation openFinal= {openFinal} setOpenFinal= {setOpenFinal}/>
         </DivContainer>
     </Dialog>
   )
