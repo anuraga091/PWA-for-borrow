@@ -12,6 +12,7 @@ const BorrowDialog = ({open, setOpen}) => {
         upi_id: ''
     }
     const [borrow, setBorrow] = useState(borrowInitialValues);
+
     const [openFinal, setOpenFinal] = useState(false);
 
      const handleClose = () => {
@@ -25,7 +26,7 @@ const BorrowDialog = ({open, setOpen}) => {
     const handleClick = async () => {
         let response = await borrowMoney(borrow)
     }
-    
+
     const openDialog = () => {
         setOpenFinal(true);
     }
@@ -46,8 +47,8 @@ const BorrowDialog = ({open, setOpen}) => {
                 <BackButton onClick={handleClose}>Back</BackButton>
                 <BorrowButton onClick={() => {handleClick(); openDialog()}}>Continue</BorrowButton>
               </StyleDiv>
-            <BorrowingConfirmation openFinal= {openFinal} setOpenFinal= {setOpenFinal}/>
         </DivContainer>
+        <BorrowingConfirmation openFinal= {openFinal} setOpenFinal= {setOpenFinal}/>
     </Dialog>
   )
 }
@@ -62,8 +63,8 @@ const DivContainer = styled('div')`
     
 
   @media(min-width: 450px){
-        width: 50vh;
-        height: 70vh;
+        width: 300px;
+        height: 500px;
   }
   div,button,p{
     margin-top: 20px;
@@ -82,6 +83,8 @@ const BorrowButton = styled(Button)`
     height: 32px;
     margin: 5px;
     width: 150px;
+    align-items: center;
+    text-align: center;
     :hover{
         background-color: #006400;
     }
@@ -100,6 +103,8 @@ const BackButton = styled(Button)`
     height: 32px;
     margin: 5px;
     width: 150px;
+    align-items: center;
+    text-align: center;
     :hover{
         background-color: #FFA07A;
     }

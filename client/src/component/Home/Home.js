@@ -19,7 +19,7 @@ const Home = () => {
     <>
         <StyledHeader>
           <StyledToolBar style={{minHeight: 70}}>
-                <p> Omnifolio </p>
+                <p> Omniflo </p>
 
                 {
                     account? <Profile account={account}/>

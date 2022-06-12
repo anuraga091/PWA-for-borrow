@@ -107,7 +107,7 @@ const Login = ({open, setOpen}) => {
             <DivContainer>
               <TextField variant='standard' onChange={(e) => onValueChange(e)} name='phone' label = 'Enter Phone Number'/>
               {error && <Error>Please Enter valid phone number</Error>}
-              <Typography className='privacy-policy'>By continuing, you agree to Omnifolio's Terms of Use and Privacy Policy.</Typography>
+              <Typography className='privacy-policy'>By continuing, you agree to Omniflo's Terms of Use and Privacy Policy.</Typography>
               {
                 button.view === 'otp' ?
                   <Button onClick={toggleOtpButton} className='otp'>Request OTP</Button>
@@ -119,7 +119,7 @@ const Login = ({open, setOpen}) => {
               }
               
               
-              <Typography onClick={()=> toggleSignup()} className='create-account'>New to Omnifolio? Create an account</Typography>
+              <Typography onClick={()=> toggleSignup()} className='create-account'>New to Omniflo? Create an account</Typography>
             </DivContainer>
         :
             <DivContainer>
@@ -141,8 +141,8 @@ const StyledDiv = styled('div')`
   display: flex;
 
   @media(min-width: 450px){
-        width: 60vh;
-        height: 60vh;
+        width: 400px;
+        height: 500px;
   }
 `;
 const StyleTypography = styled('div')`
