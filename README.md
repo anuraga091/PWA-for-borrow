@@ -15,7 +15,7 @@
 6. All the features of point 5 is working both in backend as well as frontend and we can see the data in mongodb database.
 7. The data of carousel is coming from a external data folder where json type data is there, we can also fetch API to get all the data for the carousel.
 8. Carousel autoplay be changing at each 10 secs, we can however swipe, drag and click on the '< , >' to change the card.
-9. This app will show the last cache data when you go offline.
+9. This app will show the offline data when you go offline asking please go online to lend or borrow money.
 
 #### Deployed link: https://omnifolio-anurag.herokuapp.com/
 
